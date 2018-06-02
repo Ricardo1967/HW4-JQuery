@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>jQuery Calculator</title>
 
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
 
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
+<div class="jumbotron">
+    <h1 class="text-center">CrystalsCollector</h1>
+
+</div>
+
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="card">
-                <div class="card-header">CrystalsCollector!</div>
-            </div>
             <div class="card-body">
                 <p>
                     You will be given a random number at the start of the game.
                 </p>
-                <br>
+                
                 <p>
                     Thereare gour crystals below. By clicking on a crystal you will add a specific amount of points to you total score.
                 </p>
                 <p>
-                    You win the game by matching your total score to random number, you lose the game if your total score goues above the random number.
+                    You win the game by matching your total score to random number, you lose the game if your total score goues above the random
+                    number.
                 </p>
                 <p>
                     Each time when the game starts, the game will change values of each cristal.
                 </p>
             </div>
-            <div class="panel panel-default">
-                    <div class="panel-heading">Panel Heading</div>
-                    <h1 id="first-number"></h1>
-                  </div>
             <div class="row">
-                    <div class="card-group mx-auto mt-4">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <img src="assets/images/red-crystal.jpg" width="100" height="100">
+                <div class="col-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Panel Heading</div>
+                        <h1 id="currentScore"></h1>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="card-group mx-auto mt-4">
+                            <div class="card">
+                                <div class="card-body text-center red-crystal">
+                                    <img src="assets/images/red-crystal.jpg" width="100" height="100">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <img src="assets/images//blue-crystal.jpg" width="100" height="100">
+                            <div class="card">
+                                <div class="card-body text-center blue-crystal">
+                                    <img src="assets/images//blue-crystal.jpg" width="100" height="100">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <img src="assets/images/yellow-crystal.jpg" width="100" height="100">
+                            <div class="card">
+                                <div class="card-body text-center yellow-crystal">
+                                    <img src="assets/images/yellow-crystal.jpg" width="100" height="100">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <img src="assets/images/yellow-crystal.jpg" width="100" height="100">
+                            <div class="card">
+                                <div class="card-body text-center mag-crystal ">
+                                    <img src="assets/images/mag-crystal.jpg" width="100" height="100">
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-
+            </div>
+            
         </div>
-
     </div>
-
-
 </body>
+
+</html>
