@@ -1,51 +1,58 @@
-$(document).ready(function() {
- 
-    var targetScore = 0;
-    var currentScore = 0;
-    var redCrystal = 0;
-    var blueCrystal = 0;
-    var yellowCrystal = 0;
-    var magCrystal = 0;
+$(document).ready(function () {
+
+    var targetScore;
+    var crystals = [];
     var wins = 0;
     var losses = 0;
-    var gameStatus = true;
+    var gameStatus;
  
     function reset() {
-        //target random number
         targetScore = Math.floor((Math.random() * 101) + 19);
-        //Getting values for the buttons
-        redCrystal = Math.floor((Math.random() * 11) + 1);
-        blueCrystal = Math.floor((Math.random() * 11) + 1);
-        yellowCrystal = Math.floor((Math.random() * 11) + 1);
-        magCrystal = Math.floor((Math.random() * 11) + 1);
- 
- 
-        console.log(targetScore , redCrystal , blueCrystal , yellowCrystal , magCrystal)
- 
+        crystals=[];
+        for (i = 0; i < 4; i++) {
+            crystals.push(Math.floor((Math.random() * 11) + 1));
+        };
+        currentScore = 0;
+        gameStatus = true;
+        $('#message').text('Click a crystal to start playing');
+        $('#targetScore').text(targetScore);
+        $('#currentScore').text(currentScore);
+        $('#wins').text('wins: ' + wins);
+        $('#losses').text('losses: ' + losses);
+        console.log(crystals[0], crystals[1], crystals[2], crystals[3]);
     };
-    reset(); 
-    // action for the buttns
-    $(".red-crystal").on('click', function(){
-        currentScore = currentScore + redCrystal;
-        console.log(currentScore);
-        $("#currentScore").html(currentScore);
-    })
-    $(".blue-crystal").on('click', function(){
-        currentScore = currentScore + blueCrystal ;
-        $("#currentScore").html(currentScore);
-    })
-    $(".mag-crystal").on('click', function(){
-        currentScore = currentScore + magCrystal ;
-        $("#currentScore").html(currentScore);
-    })
-    $(".yellow-crystal").on('click', function(){
-        currentScore = currentScore + yellowCrystal ;
-        $("#currentScore").html(currentScore);
-    })
-    //when user wins
-    if(currentScore == targetScore){
-
-    }
  
-   
+    function playGame(value) {
+        currentScore += value;
+        if (gameStatus) {
+            $('#currentScore').text(currentScore);
+            if (currentScore >= targetScore) {
+                gameStatus = false;
+                setTimeout(function () {
+                    reset();
+                }, 2000);
+                if (currentScore === targetScore) {
+                    wins++;
+                    $('#message').text('You win');
+                } else if (currentScore > targetScore) {
+                    losses++;
+                    $('#message').text('You lost');
+                };
+            };
+        };
+    };
+ 
+    reset();
+    $('.red-crystal').on('click', function () {
+        playGame(crystals[0]);
+    });
+    $('.blue-crystal').on('click', function () {
+        playGame(crystals[1]);
+    });
+    $('.yellow-crystal').on('click', function () {
+        playGame(crystals[2]);
+    });
+    $('.mag-crystal').on('click', function () {
+        playGame(crystals[3]);
+    });
  });
