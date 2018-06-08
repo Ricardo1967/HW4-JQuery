@@ -17,8 +17,8 @@ $(document).ready(function () {
         $('#message').text('Click a crystal to start playing');
         $('#targetScore').text(targetScore);
         $('#currentScore').text(currentScore);
-        $('#wins').text('wins: ' + wins);
-        $('#losses').text('losses: ' + losses);
+        $('#wins').text(wins);
+        $('#losses').text(losses);
         console.log(crystals[0], crystals[1], crystals[2], crystals[3]);
     };
  
